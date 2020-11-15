@@ -15,9 +15,9 @@ class CreateBarangkeluarTable extends Migration
     {
         Schema::create('Keluar',function(Blueprint $table) {
             $table->bigIncrements('id');
+            $table->date('tgl_keluar');
             $table->unsignedBigInteger('barang_id');
             $table->foreign('barang_id')->references('id')->on('barang')->onDelete('cascade');
-            $table->date('tgl_keluar');
             $table->integer('jumlah_keluar');
             $table->timestamps();
         });
