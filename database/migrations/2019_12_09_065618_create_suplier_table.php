@@ -15,11 +15,11 @@ class CreateSuplierTable extends Migration
     {
         Schema::create('Suplier',function(Blueprint $table){
             $table->bigIncrements('id');
-            $table->string('nama_suplier');
-            $table->string('alamat_suplier');
-            $table->string('no_hp_suplier');
-            $table->string('email_suplier');
-            $table->string('pj_suplier');
+            $table->string('nama_suplier', 50);
+            $table->string('alamat_suplier', 50);
+            $table->string('no_hp_suplier', 15);
+            $table->string('email_suplier', 50);
+            $table->string('pj_suplier', 50);
             $table->date('tanggal_suplier');
             $table->timestamps();
         });
