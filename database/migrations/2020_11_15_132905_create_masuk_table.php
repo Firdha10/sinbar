@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBarangmasukTable extends Migration
+class CreateMasukTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateBarangmasukTable extends Migration
      */
     public function up()
     {
-         Schema::create('Masuk',function(Blueprint $table) {
+        Schema::create('Masuk', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('suplier_id');
-            $table->unsignedBigInteger('barang_id');
-            $table->foreign('suplier_id')->references('id')->on('suplier')->onDelete('cascade');
-            $table->foreign('barang_id')->references('id')->on('barang')->onDelete('cascade');
+            $table->foreign('suplier_id')->references('id')->on('Suplier')->onDelete('cascade');
             $table->date('tgl_masuk');
             $table->integer('jumlah_masuk');
             $table->timestamps();
