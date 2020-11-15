@@ -20,7 +20,7 @@ class CreateMasukTable extends Migration
             $table->unsignedBigInteger('barang_id');
             $table->foreign('barang_id')->references('id')->on('Barang')->onDelete('cascade');
             $table->date('tgl_masuk');
-            $table->integer('jumlah_masuk');
+            $table->integer('jumlah_masuk', 5);
             $table->timestamps();
         });
     }
