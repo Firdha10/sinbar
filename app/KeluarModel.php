@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class KeluarModel extends Model
 {
-    protected $table = 'keluar';
+    protected $table = 'Keluar';
 
     public function Pelanggan()
     {
