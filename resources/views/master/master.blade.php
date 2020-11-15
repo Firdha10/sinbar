@@ -38,22 +38,22 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('barang.index')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-database"></i>
             <span>Barang</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('supplier.index')}}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <i class="fas fa-fw fa-shopping-basket"></i>
             <span>Supplier</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('barangmasuk.index')}}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-reply"></i>
           <span>Barang Masuk</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('barangkeluar.index')}}">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="fas fa-fw fa-share"></i>
           <span>Barang Keluar</span></a>
         </li>
 
