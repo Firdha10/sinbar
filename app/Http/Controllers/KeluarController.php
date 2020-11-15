@@ -18,14 +18,14 @@ class KeluarController extends Controller
     public function index()
     {
         $data = KeluarModel::all();
-        return view('barangkeluar.keluar',compact('data'));
+        return view('barangkeluar.index',compact('data'));
     }
 
      public function search(Request $request)
     {
         $cari = $request->get('cari');
         $data = KeluarModel::where('tgl_keluar','LIKE','%'.$cari.'%')->get();
-        return view('barangkeluar.keluar',compact('data'));
+        return view('barangkeluar.index',compact('data'));
     }
 
     /**
@@ -37,7 +37,7 @@ class KeluarController extends Controller
     {
         $pelanggan = PelangganModel::all();
         $barang = BarangModel::all();
-        return view('barangkeluar.tambah_keluar',compact('pelanggan','barang'));
+        return view('barangkeluar.create',compact('pelanggan','barang'));
     }
 
     /**
@@ -60,7 +60,7 @@ class KeluarController extends Controller
         $BarangModel->save();
 
         Session::flash('success','Data Berhasil Ditambahkan');
-        return redirect()->route('barangkeluar.keluar');
+        return redirect()->route('barangkeluar.index');
 
 
 
@@ -75,7 +75,7 @@ class KeluarController extends Controller
     public function show($id)
     {
         $data = KeluarModel::find($id);
-        return view('barangkeluar.show_keluar',compact('data'));
+        return view('barangkeluar.show',compact('data'));
     }
 
     /**
@@ -112,6 +112,6 @@ class KeluarController extends Controller
         $KeluarModel =  KeluarModel::find($id);
         $KeluarModel->delete();
         Session::flash('success','Data Berhasil Dihapus');
-        return redirect()->route('barangkeluar.keluar');
+        return redirect()->route('barangkeluar.index');
     }
 }

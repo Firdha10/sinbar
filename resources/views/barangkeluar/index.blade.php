@@ -5,7 +5,7 @@
 		<a href="{{ route('barangkeluar.create') }}" class="btn btn-primary btn-rounded btn-sm"><i class="fa fa-plus"></i> Tambah Barang Keluar</a>
 	</div>
 	<div class="col-md-3">
-		<form action="{{route('barangkeluar.cari_masuk')}}" method="post">
+		<form action="{{route('barangkeluar.cari_keluar')}}" method="post">
 			{{csrf_field()}}
 			<div class="form-group">
 				<input type="text" name="cari" class="form-control" placeholder="Masukan Nama Suplier">
@@ -37,7 +37,7 @@
             <tbody>
 			@foreach($data as $d)
                 <tr>
-					<td>{{$d->Pelanggan->nama_pelanggan}}</td>
+					
 					<td>{{$d->barang->nama_barang}}</td>
 					<td>{{$d->tgl_keluar}}</td>
 					<td>{{$d->jumlah_keluar}}</td>
