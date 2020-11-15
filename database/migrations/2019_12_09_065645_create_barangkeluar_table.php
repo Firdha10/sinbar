@@ -17,7 +17,7 @@ class CreateBarangkeluarTable extends Migration
             $table->bigIncrements('id');
             $table->date('tgl_keluar');
             $table->unsignedBigInteger('barang_id');
-            $table->foreign('barang_id')->references('id')->on('barang')->onDelete('cascade');
+            $table->foreign('barang_id')->references('id')->on('Barang')->onDelete('cascade');
             $table->integer('jumlah_keluar');
             $table->timestamps();
         });
