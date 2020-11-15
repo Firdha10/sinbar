@@ -17,8 +17,7 @@ class UserController extends Controller
     	$masuk = MasukModel::all();
     	$suplier = SuplierModel::all();
     	$keluar = KeluarModel::all();
-    	$pelanggan = PelangganModel::all();
-    	return view('dashboard',compact('barang','masuk','suplier','keluar','pelanggan'));
+    	return view('dashboard',compact('barang','masuk','suplier','keluar'));
     }
 
 

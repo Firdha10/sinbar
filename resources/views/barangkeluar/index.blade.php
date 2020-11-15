@@ -29,8 +29,7 @@
             <thead>
 				<tr>
 					<th>Nama Barang</th>
-					<th>Nama Supplier</th>
-					<th>Tanggal Masuk</th>
+					<th>Tanggal Keluar</th>
 					<th>Jumlah</th>
 					<th class="text-center">Aksi</th>
 				</tr>
@@ -38,20 +37,20 @@
             <tbody>
 			@foreach($data as $d)
                 <tr>
-					<td>{{$d->Barang->nama_barang}}</td>
-					<td>{{$d->Suplier->nama_suplier}}</td>
-					<td>{{$d->tgl_masuk}}</td>
-					<td>{{$d->jumlah_masuk}}</td>
+					<td>{{$d->Pelanggan->nama_pelanggan}}</td>
+					<td>{{$d->barang->nama_barang}}</td>
+					<td>{{$d->tgl_keluar}}</td>
+					<td>{{$d->jumlah_keluar}}</td>
 					<td style="text-align:center;">
 						<div class="btn-group">
-							<form action="{{route('barangmasuk.destroy',$d->id)}}" class="delete_form"  method="post">
+							<form action="{{route('barangkeluar.destroy',$d->id)}}" class="delete_form"  method="post">
 								{{ csrf_field() }}
 								{{ method_field('delete') }}
 								<button class="btn btn-danger btn-sm" id="btn_delete"> <i class="fa fa-trash"></i></button>
 							</form>
 						</div>
 						<div class="btn-group">
-							<a href="{{route('barang.show',$d->id)}}" class="btn btn-success text-white btn-sm"><i class="fas fa fa-file"></i></a>
+							<a href="{{route('barangkeluar.show',$d->id)}}" class="btn btn-success text-white btn-sm"><i class="fas fa fa-file"></i></a>
 						</div>
 					</td>
                 </tr>
@@ -63,44 +62,4 @@
     </div>
   </div>
 </div>
-<h1>DATA BARANG KELUAR</h1>
-<div class="row">
-	<div class="col-md-8">
-		<a href="{{route('user.tambahkeluar')}}" class="btn btn-info">TAMBAH</a>
-	</div>
-	<div class="col-md-4">
-		<form action="{{route('user.cari_keluar')}}" method="post">
-			{{csrf_field()}}
-			<div class="form-group">
-				<input type="text" name="cari" class="form-control" placeholder="masukan tanggal barang keluar">
-			</div>
-		</form>
-	</div>
-</div>
-@if(Session::has('success'))
-	<div class="alert alert-info">
-		<p>{{Session::get('success')}}</p>
-	</div>
-@endif
-<table class="table table-hover">
-	<tr>
-		<th>NAMA PEMBELI</th>
-		<th>NAMA BARANG</th>
-		<th>TGL PEMBELIAN</th>
-		<th>JUMLAH</th>
-		<th>AKSI</th>
-	</tr>
-	@foreach($data as $d)
-	<tr>
-		<td>{{$d->Pelanggan->nama_pelanggan}}</td>
-		<td>{{$d->barang->nama_barang}}</td>
-		<td>{{$d->tgl_keluar}}</td>
-		<td>{{$d->jumlah_keluar}}</td>
-		<td>
-			<a href="{{route('user.show_keluar',$d->id)}}" class="btn btn-info">DETAIL</a>
-			<a href="{{route('user.delete_keluar',$d->id)}}" onclick="return confirm('Hapus Data?')" class="btn btn-danger">HAPUS</a>
-		</td>
-	</tr>
-	@endforeach
-</table>
 @endsection

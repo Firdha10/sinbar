@@ -2,7 +2,7 @@
 @section('isi')
 <h1>TAMBAH BARANG KELUAR</h1>
 <hr>
-<form action="{{route('user.do_masuk')}}" method="post">
+<form action="{{route('barangkeluar.store')}}" method="post">
 	{{csrf_field()}}
 	<div class="form-group">
 		<label>MASUKAN NAMA PELANGGAN</label>
