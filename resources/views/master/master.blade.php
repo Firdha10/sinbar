@@ -11,6 +11,7 @@
     <link href=" {{asset('vendor/fontawesome-free/css/all.min.css')}} " rel="stylesheet" type="text/css">
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/sweetalert2.min.css')}}">
   </head>
   <body id="page-top">
     <!-- Page Wrapper -->
@@ -31,7 +32,7 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
+        <li class="nav-item ">
           <a class="nav-link" href="{{route('user.index')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -43,8 +44,13 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('supplier.index')}}">
-            <i class="fas fa-fw fa-shopping-basket"></i>
+            <i class="fas fa-fw fa-truck"></i>
             <span>Supplier</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('kategori.index')}}">
+            <i class="fas fa-fw fa-tags"></i>
+            <span>Kategori</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{route('barangmasuk.index')}}">
@@ -142,6 +148,10 @@
     <script src="js/sb-admin-2.min.js"></script>
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script src="{{asset('js/style.js')}}"></script>
+    <script src="{{asset('js/sweetalert2.all.min.js')}}"></script>
     @stack('scripts')
+    @section('js')
+    
+    @show
   </body>
 </html>

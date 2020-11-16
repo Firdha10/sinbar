@@ -70,7 +70,7 @@ class BarangController extends Controller
         $BarangModel->foto_barang = $org;
         $BarangModel->save();
 
-        Session::flash('success','Data Success Submit');
+        Session::flash('success','Data Berhasil Ditambahkan');
         return redirect()->route('barang.index');
     }
 
@@ -121,13 +121,13 @@ class BarangController extends Controller
 
             $BarangModel = BarangModel::find($id);
             $BarangModel->nama_barang = $request->nama;
-            $BarangModel->kategori_barang = $request->kategori;
+            $BarangModel->kategori_id = $request->kategori;
             $BarangModel->stok_barang = $request->stok;
             $BarangModel->harga_barang = $request->harga; 
             $BarangModel->expired_barang = $request->exp;
             $BarangModel->save();
 
-            Session::flash('success','Data Success Update');
+            Session::flash('success','Data Berhasil Diubah');
             return redirect()->route('barang.index');
 
         } else {
@@ -138,14 +138,14 @@ class BarangController extends Controller
 
             $BarangModel = BarangModel::find($id);
             $BarangModel->nama_barang = $request->nama;
-            $BarangModel->kategori_barang = $request->kategori;
+            $BarangModel->kategori_id = $request->kategori;
             $BarangModel->stok_barang = $request->stok;
             $BarangModel->harga_barang = $request->harga;
             $BarangModel->expired_barang = $request->exp;
             $BarangModel->foto_barang = $org;
             $BarangModel->save();
 
-            Session::flash('success','Data Success Update');
+            Session::flash('success','Data Berhasil Diubah');
             return redirect()->route('barang.index');
         }
     }
@@ -160,7 +160,7 @@ class BarangController extends Controller
     {
         $BarangModel = BarangModel::find($id);
         $BarangModel->delete();
-        Session::flash('success','Data Success Delete');
+        Session::flash('success','Data Berhasil Dihapus');
         return redirect()->route('barang.index');
     }
 

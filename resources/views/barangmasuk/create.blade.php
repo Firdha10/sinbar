@@ -32,7 +32,7 @@
 					</div>
 				</div>
 				<button type="submit" class="btn btn-primary" id="submit">Simpan</button>
-				<a href="{{route('supplier.index')}}" class="btn btn-danger">Kembali</a>
+				<a href="{{route('barangmasuk.index')}}" class="btn btn-danger">Kembali</a>
 			</div>
 		</div>
 	</form>

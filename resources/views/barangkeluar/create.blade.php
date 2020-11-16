@@ -1,29 +1,29 @@
 @extends('master.master')
 @section('isi')
-<h1>TAMBAH BARANG KELUAR</h1>
-<hr>
-<form action="{{route('barangkeluar.store')}}" method="post">
-	{{csrf_field()}}
-	<div class="form-group">
-		<label>MASUKAN NAMA PELANGGAN</label>
-		<select name="pelanggan" class="form-control">
-			@foreach($pelanggan as $p)
-				<option value="{{$p->id}}">{{$p->nama_pelanggan}}</option>
-			@endforeach
-		</select>
-	</div>
-	<div class="form-group">
-		<label>MASUKAN NAMA BARANG</label>
-		<select name="barang" class="form-control">
-			@foreach($barang as $b)
-			<option value="{{$b->id}}">{{$b->nama_barang}} || Stok : {{$b->stok_barang}} </option>
-			@endforeach
-		</select>
-	</div>
-	<div class="form-group">
-		<label>MASUKAN JUMLAH BARANG</label>
-		<input type="number" name="jumlah" class="form-control" required="">
-	</div>
-	<input type="submit" value="SIMPAN" class="btn btn-info">
-</form>
+	<form action="{{route('barangkeluar.store')}}" method="post">
+		{{ csrf_field() }}
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Tambah Barang Keluar</h4>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Nama Barang</label>
+					<div class="col-md-12">
+						<select name="barang" class="form-control">
+							@foreach($barang as $b)
+								<option value="{{$b->id}}">{{$b->nama_barang}}</option>
+							@endforeach
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-4 control-label">Jumlah Barang Keluar</label>
+					<div class="col-md-12">
+						<input type="number" name="jumlah" class="form-control" required="">
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary" id="submit">Simpan</button>
+				<a href="{{route('barangkeluar.index')}}" class="btn btn-danger">Kembali</a>
+			</div>
+		</div>
+	</form>
 @endsection

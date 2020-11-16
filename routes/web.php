@@ -27,9 +27,10 @@ Route::group(['middleware'=>'auth'],function(){
 	Route::resource('supplier', 'SuplierController');
 	Route::resource('barangmasuk', 'MasukController');
 	Route::resource('barangkeluar', 'KeluarController');
+	Route::resource('kategori', 'KategoriController');
 	Route::post('/barang/cari','BarangController@search')->name('barang.cari_barang');
 	Route::post('/suplier/cari','SuplierController@search')->name('supplier.search_suplier');
 	Route::post('/masuk/cari','MasukController@search')->name('barangmasuk.cari_masuk');
 	Route::post('/keluar/cari','KeluarController@search')->name('barangkeluar.cari_keluar');
-
+	Route::post('/kategori/cari','KategoriController@search')->name('kategori.search_kategori');
 });

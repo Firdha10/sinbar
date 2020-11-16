@@ -49,18 +49,26 @@ class MasukController extends Controller
      */
     public function store(Request $request)
     {
+        $count = MasukModel::where('barang_id',$request->input('barang'))->count();
+
+        if($count>0){
+            Session::flash('danger', 'Barang Yang Sama Telah Ada!');
+            return redirect()->to('barangmasuk');
+        }
+    
         $MasukModel = new MasukModel;
         $MasukModel->suplier_id = $request->suplier;
         $MasukModel->barang_id = $request->barang;
-        $MasukModel->tgl_masuk = date('Y-m-d');
+        $MasukModel->tgl_masuk = $request->tgl_masuk;
         $MasukModel->jumlah_masuk = $request->jumlah;
         $MasukModel->save();
 
-        $BarangModel = BarangModel::find($request->barang);
-        $BarangModel->stok_barang = $BarangModel->stok_barang + $request->jumlah;
-        $BarangModel->save();
+        $MasukModel->Barang->where('id', $MasukModel->barang_id)
+                        ->update([
+                            'stok_barang' => ($MasukModel->Barang->stok_barang + $request->jumlah),
+                            ]);
 
-        Session::flash('success','Data Success Submit');
+        Session::flash('success','Data Berhasil Ditambahkan');
         return redirect()->route('barangmasuk.index');
 
     }
@@ -111,7 +119,11 @@ class MasukController extends Controller
         $MasukModel = MasukModel::find($id);
         $MasukModel->delete();
 
-        Session::flash('success','Data Deleted !');
+        $MasukModel->Barang->where('id', $MasukModel->barang_id)
+                        ->update([
+                            'stok_barang' => ($MasukModel->Barang->stok_barang - $MasukModel->jumlah_masuk),
+                            ]);
+        Session::flash('success','Data Berhasil Dihapus');
         return redirect()->route('barangmasuk.index');
     }
 }

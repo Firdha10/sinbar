@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\KeluarModel;
 use App\BarangModel;
-use App\PelangganModel;
 use Session;
 
 class KeluarController extends Controller
@@ -35,9 +34,8 @@ class KeluarController extends Controller
      */
     public function create()
     {
-        $pelanggan = PelangganModel::all();
         $barang = BarangModel::all();
-        return view('barangkeluar.create',compact('pelanggan','barang'));
+        return view('barangkeluar.create',compact('barang'));
     }
 
     /**
@@ -48,16 +46,23 @@ class KeluarController extends Controller
      */
     public function store(Request $request)
     {
+        $count = KeluarModel::where('barang_id',$request->input('barang'))->count();
+
+        if($count>0){
+            Session::flash('danger', 'Barang Yang Sama Telah Ada!');
+            return redirect()->to('barangkeluar');
+        }
+
         $KeluarModel = new KeluarModel;
-        $KeluarModel->pelanggan_id = $request->pelanggan;
         $KeluarModel->barang_id = $request->barang;
         $KeluarModel->tgl_keluar = date('Y-m-d');
         $KeluarModel->jumlah_keluar = $request->jumlah;
         $KeluarModel->save();
 
-        $BarangModel = BarangModel::find($request->barang);
-        $BarangModel->stok_barang = $BarangModel->stok_barang - $request->jumlah;
-        $BarangModel->save();
+        $KeluarModel->Barang->where('id', $KeluarModel->barang_id)
+                        ->update([
+                            'stok_barang' => ($KeluarModel->Barang->stok_barang - $request->jumlah),
+                            ]);
 
         Session::flash('success','Data Berhasil Ditambahkan');
         return redirect()->route('barangkeluar.index');
@@ -98,7 +103,7 @@ class KeluarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       //
     }
 
     /**
@@ -111,6 +116,12 @@ class KeluarController extends Controller
     {
         $KeluarModel =  KeluarModel::find($id);
         $KeluarModel->delete();
+
+        $KeluarModel->Barang->where('id', $KeluarModel->barang_id)
+                        ->update([
+                            'stok_barang' => ($KeluarModel->Barang->stok_barang + $KeluarModel->jumlah_keluar),
+                            ]);
+
         Session::flash('success','Data Berhasil Dihapus');
         return redirect()->route('barangkeluar.index');
     }
