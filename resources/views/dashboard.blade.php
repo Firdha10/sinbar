@@ -6,28 +6,36 @@
 	<div class="row">
 		<div class="col">
 			<div class="alert alert-info">
-				<p class="text-center"><b>BARANG</b></p>
-				<p>Jumlah Produk : {{count($barang)}} Barang</p>
+				<p class="text-center"><b>Barang</b></p>
+				<p>Jumlah Barang : {{count($barang)}} Barang</p>
 			</div>
 		</div>
 		<div class="col">
 			<div class="alert alert-info">
-				<p class="text-center"><b>SUPLIER</b></p>
-				<p>Jumlah Suplier : {{count($suplier)}} Suplier</p>
+				<p class="text-center"><b>Supplier</b></p>
+				<p>Jumlah Supplier : {{count($suplier)}} Suplier</p>
 			</div>
 		</div>
 		<div class="w-100"></div>
 		<div class="col">
 			<div class="alert alert-info">
-				<p class="text-center"><b>BARANG MASUK</b></p>
-				<p>Jumlah Barang Masuk : {{count($masuk)}} Barang Masuk</p>
+				<p class="text-center"><b>Kategori Barang</b></p>
+				<p>Jumlah Kategori Barang : {{count($kategori)}} Barang</p>
 			</div>
 		</div>
 		<div class="col">
 			<div class="alert alert-info">
-				<p class="text-center"><b>BARANG KELUAR</b></p>
+				<p class="text-center"><b>Barang Masuk</b></p>
+				<p>Jumlah Barang Masuk : {{count($masuk)}} Barang Masuk</p>
+			</div>
+		</div>
+		<div class="w-100"></div>
+		<div class="col">
+			<div class="alert alert-info">
+				<p class="text-center"><b>Barang Keluar</b></p>
 				<p>Jumlah Barang Keluar : {{count($keluar)}} Barang Keluar</p>
 			</div>
 		</div>
+		<div class="col"></div>
 	</div>
 @endsection

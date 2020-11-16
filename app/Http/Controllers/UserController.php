@@ -7,6 +7,7 @@ use App\MasukModel;
 use App\BarangModel;
 use App\SuplierModel;
 use App\KeluarModel;
+use App\KategoriModel;
 use App\PelangganModel;
 
 class UserController extends Controller
@@ -16,8 +17,9 @@ class UserController extends Controller
     	$barang = BarangModel::all();
     	$masuk = MasukModel::all();
     	$suplier = SuplierModel::all();
-    	$keluar = KeluarModel::all();
-    	return view('dashboard',compact('barang','masuk','suplier','keluar'));
+		$keluar = KeluarModel::all();
+		$kategori = KategoriModel::all();
+    	return view('dashboard',compact('barang','masuk','suplier','keluar','kategori'));
     }
 
 
