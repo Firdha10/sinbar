@@ -1,4 +1,7 @@
 @extends('master.master')
+@section('title')
+    Dashboard
+@endsection
 @section('isi')
 	<h1>Welcome {{auth()->user()->name}} </h1>
 	<hr>
@@ -21,19 +24,6 @@
 			<div class="alert alert-info">
 				<p class="text-center"><b>Kategori Barang</b></p>
 				<p>Jumlah Kategori Barang : {{count($kategori)}} Barang</p>
-			</div>
-		</div>
-		<div class="col">
-			<div class="alert alert-info">
-				<p class="text-center"><b>Barang Masuk</b></p>
-				<p>Jumlah Barang Masuk : {{count($masuk)}} Barang Masuk</p>
-			</div>
-		</div>
-		<div class="w-100"></div>
-		<div class="col">
-			<div class="alert alert-info">
-				<p class="text-center"><b>Barang Keluar</b></p>
-				<p>Jumlah Barang Keluar : {{count($keluar)}} Barang Keluar</p>
 			</div>
 		</div>
 		<div class="col"></div>

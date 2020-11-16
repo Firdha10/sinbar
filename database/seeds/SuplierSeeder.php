@@ -13,11 +13,11 @@ class SuplierSeeder extends Seeder
     public function run()
     {
         SuplierModel::create([
-        	'nama_suplier' => 'CV Indah Sejahtra',
-        	'alamat_suplier' => 'Jln Surodinawan No 43',
-        	'no_hp_suplier' => '087412341234',
-        	'email_suplier' => 'indahsejahtra@gmail.com',
-        	'pj_suplier' => 'amin aminudin',
+        	'nama_suplier' => 'CV Media Jaya',
+        	'alamat_suplier' => 'Jl. Kh. Wahid Hasyim No. 88',
+        	'no_hp_suplier' => '08916289076',
+        	'email_suplier' => 'mediajaya@gmail.com',
+        	'pj_suplier' => 'budi',
         	'tanggal_suplier' => date('Y-m-d')
         ]);
     }

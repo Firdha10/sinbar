@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SINBAR - Dashboard</title>
+    <title>SINBAR - @yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('img/inventory.png') }}">
     <!-- Custom fonts for this template-->
     <link href=" {{asset('vendor/fontawesome-free/css/all.min.css')}} " rel="stylesheet" type="text/css">
     <!-- Custom styles for this template-->
@@ -22,8 +23,8 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-          <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+          <div class="sidebar-brand-icon">
+            <img src="{{ asset('img/inventory.png') }}" alt="" style="width:50px; height:50px;">
           </div>
           <div class="sidebar-brand-text mx-3">SINBAR</div>
         </a>
@@ -52,7 +53,7 @@
             <i class="fas fa-fw fa-tags"></i>
             <span>Kategori</span></a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="{{route('barangmasuk.index')}}">
           <i class="fas fa-fw fa-reply"></i>
           <span>Barang Masuk</span></a>
@@ -61,7 +62,7 @@
           <a class="nav-link" href="{{route('barangkeluar.index')}}">
           <i class="fas fa-fw fa-share"></i>
           <span>Barang Keluar</span></a>
-        </li>
+        </li> -->
 
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
@@ -124,7 +125,7 @@
         <footer class="sticky-footer bg-white">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Your Website 2019</span>
+              <span>Copyright &copy; SINBAR 2020</span>
             </div>
           </div>
         </footer>

@@ -1,4 +1,7 @@
 @extends('master.master')
+@section('title')
+    Data Barang
+@endsection
 @section('isi')
 <div class="row">
   <div class="col-md-9">
