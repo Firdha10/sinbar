@@ -1,6 +1,6 @@
 @extends('master.master')
 @section('isi')
-	<h1>SHOW DATA BARANG</h1>
+	<h3> <b>SHOW DATA BARANG</b> </h3>
 	<br>
 	<b>Nama Barang</b>
 	<p>{{$data->nama_barang}}</p>

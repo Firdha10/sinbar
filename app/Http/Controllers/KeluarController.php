@@ -66,9 +66,6 @@ class KeluarController extends Controller
 
         Session::flash('success','Data Berhasil Ditambahkan');
         return redirect()->route('barangkeluar.index');
-
-
-
     }
 
     /**
