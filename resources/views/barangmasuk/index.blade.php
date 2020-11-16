@@ -49,9 +49,6 @@
 					<td>{{$d->jumlah_masuk}}</td>
 					<td style="text-align:center;">
 						<div class="btn-group">
-							<a type="submit" class="btn btn-primary text-white btn-sm" href="{{route('barangmasuk.edit',$d->id)}}"> <i class="fas fa-pencil-alt"></i> </a>
-						</div>
-						<div class="btn-group">
 							<form action="{{route('barangmasuk.destroy',$d->id)}}" class="delete_form"  method="post">
 								{{ csrf_field() }}
 								{{ method_field('delete') }}
