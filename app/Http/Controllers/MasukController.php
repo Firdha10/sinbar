@@ -59,7 +59,7 @@ class MasukController extends Controller
         $MasukModel = new MasukModel;
         $MasukModel->suplier_id = $request->suplier;
         $MasukModel->barang_id = $request->barang;
-        $MasukModel->tgl_masuk = $request->tgl_masuk;
+        $MasukModel->tgl_masuk = date('Y-m-d');
         $MasukModel->jumlah_masuk = $request->jumlah;
         $MasukModel->save();
 
@@ -70,7 +70,6 @@ class MasukController extends Controller
 
         Session::flash('success','Data Berhasil Ditambahkan');
         return redirect()->route('barangmasuk.index');
-
     }
 
     /**
